@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home | MyBooks" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="InleverOpdracht1._Default" %>
+﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="InleverOpdracht1._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -28,7 +28,7 @@
             <%-- <asp:BoundField DataField="purchasePrice" HeaderText="purchasePrice" SortExpression="purchasePrice" /> --%>
             <asp:TemplateField HeaderText="More information">
                 <ItemTemplate>
-                    <asp:HyperLink Text="See more -->" NavigateUrl='<%# String.Format("~/About.aspx?book={0}", Eval("id"))%>' target="_blank" runat="server" />
+                    <asp:HyperLink Text="See more -->" NavigateUrl='<%# String.Format("~/Book.aspx?id={0}", Eval("id"))%>' runat="server" />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
