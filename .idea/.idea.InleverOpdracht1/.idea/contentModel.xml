@@ -29,6 +29,9 @@
         <e p="bootstrap.min.css.map" t="Include" />
         <e p="Site.css" t="Include" />
       </e>
+      <e p="DataAccessLayer" t="Include">
+        <e p="DAL.cs" t="Include" />
+      </e>
       <e p="Default.aspx" t="Include" />
       <e p="Default.aspx.cs" t="Include" />
       <e p="Default.aspx.designer.cs" t="Include" />
@@ -45,7 +48,7 @@
       <e p="InleverOpdracht1.csproj" t="IncludeRecursive" />
       <e p="InleverOpdracht1.sln" t="IncludeFlat" />
       <e p="Models" t="Include">
-        <e p="Book.cs" t="Include" />
+        <e p="SingleBook.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />

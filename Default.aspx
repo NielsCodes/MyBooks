@@ -4,7 +4,7 @@
 
     <h1>My Book collection</h1>
 
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display." AllowPaging="True" AllowSorting="True">
+    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="false">
         <Columns>
             <%-- Convert image URL into image --%>
             <asp:TemplateField HeaderText="Cover" runat="server"> 
