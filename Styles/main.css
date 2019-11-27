@@ -1,0 +1,51 @@
+﻿html, body {
+    
+}
+
+/* Book overview */
+#book-overview-wrapper td, #book-overview-wrapper th {
+    border: none; 
+    padding: 10px 
+}
+
+#book-overview-wrapper tr:nth-child(2n+3) {
+    background: #eee
+}
+
+#MainContent_BookGrid {
+    border: none;
+    width: 100%;
+}
+
+#MainContent_BookGrid .book-cover {
+    max-height: 200px
+}
+
+
+/* Single Book page */
+#single-book-wrapper {
+    display: flex;
+}
+
+#single-book-wrapper > #info-container {
+    flex: 1
+}
+
+#single-book-wrapper .title {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+#single-book-wrapper .author {
+    font-size: 2.5em;
+    color: #888 !important
+}
+
+#single-book-wrapper > #info-container > #details-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr
+}
+
+#single-book-wrapper > #info-container > #details-container > .book-detail > .category-label {
+    font-weight: bold;
+}
