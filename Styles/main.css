@@ -25,10 +25,17 @@
 /* Single Book page */
 #single-book-wrapper {
     display: flex;
+    margin-top: 100px !important;
+}
+
+#single-book-wrapper > #cover-container > img {
+    height: 100%;
 }
 
 #single-book-wrapper > #info-container {
-    flex: 1
+    flex: 1;
+    box-sizing: border-box;
+    margin-left: 50px;
 }
 
 #single-book-wrapper .title {
@@ -43,9 +50,18 @@
 
 #single-book-wrapper > #info-container > #details-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#single-book-wrapper > #info-container > #details-container > .book-detail {
+    padding: 10px 0;
 }
 
 #single-book-wrapper > #info-container > #details-container > .book-detail > .category-label {
     font-weight: bold;
+}
+
+#single-book-wrapper > #info-container > #personal-details-container {
+    display: flex;
+    justify-content: space-between;
 }

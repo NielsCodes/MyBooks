@@ -28,14 +28,36 @@ namespace InleverOpdracht1
             // Retrieve Book object with ID
             SingleBook book = thisDAL.GetBook(Int32.Parse(bookId));
 
+            // Set page title equal to book title
+            Page.Title = book.Title;
+
             // Bind Book data to page elements
+            // Required data
             CoverImage.ImageUrl = book.Cover;
             BookTitle.InnerText = book.Title;
             BookAuthor.InnerText = book.Author;
 
+            // Optional data - perform check whether value is not null or empty
             BookGenre.InnerHtml = string.IsNullOrEmpty(book.Genre) ? "-" : book.Genre;
             BookSeries.InnerHtml = string.IsNullOrEmpty(book.Series) ? "-" : book.Series;
+            BookLanguage.InnerHtml = string.IsNullOrEmpty(book.Language) ? "-" : book.Language;
+            BookEdition.InnerHtml = string.IsNullOrEmpty(book.Edition) ? "-" : book.Edition;
             BookPublisher.InnerHtml = string.IsNullOrEmpty(book.Publisher) ? "-" : book.Publisher;
+            BookPages.InnerHtml = book.Pages == 0 ? "-" : book.Pages.ToString();
+            BookCoverType.InnerHtml = string.IsNullOrEmpty(book.CoverType) ? "-" : book.CoverType;
+            BookISBN.InnerHtml = string.IsNullOrEmpty(book.Isbn) ? "-" : book.Isbn;
+            BookReleaseDate.InnerHtml = string.IsNullOrEmpty(book.ReleaseDate) ? "-" : book.ReleaseDate;
+            BookPrice.InnerHtml = book.Price == 0 ? "-" : "&euro;" + book.Price.ToString();
+
+            BookPurchaseDate.InnerHtml = string.IsNullOrEmpty(book.PurchaseDate) ? "-" : book.PurchaseDate;
+            BookPurchasePrice.InnerHtml = book.PurchasePrice == 0 ? "-" : "&euro;" + book.PurchasePrice;
+            var profit = book.Price - book.PurchasePrice;
+            BookProfit.InnerHtml = "&euro;" + profit;
+
+        }
+
+        protected void BookEditButton_Click(object sender, EventArgs e)
+        {
 
         }
     }
