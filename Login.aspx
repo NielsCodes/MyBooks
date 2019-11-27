@@ -2,6 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <h1>Login</h1>
+    <asp:Label ID="LoginPreMsg" runat="server" Text=""></asp:Label>
+
 
     <div id="LoginContainer">
 

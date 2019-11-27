@@ -20,6 +20,17 @@ namespace InleverOpdracht1
             }
 
             // Check if user is logged in
+            if (Request.Cookies["isLoggedIn"] == null)
+            {
+
+                Response.Redirect("Login?p=edit&id=" + bookId);
+
+            }
+        }
+
+        protected void SaveBookBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

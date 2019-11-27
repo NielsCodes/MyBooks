@@ -18,7 +18,7 @@ namespace InleverOpdracht1
         protected void Page_Load(object sender, EventArgs e)
         {
 
-
+            // Redirect user to homepage if already logged in
             if (Request.Cookies["isLoggedIn"] != null)
             {
                 var isLoggedIn = Request.Cookies["isLoggedIn"].Value;
@@ -26,6 +26,13 @@ namespace InleverOpdracht1
                 {
                     Response.Redirect("Default");
                 }
+            }
+
+            // Check if user needs to be redirected after login
+            var page = Request.QueryString["p"];
+            if (!String.IsNullOrEmpty(page))
+            {
+                LoginPreMsg.Text = "You need to log in first. You will be redirected after loging in";
             }
 
         }
@@ -38,10 +45,12 @@ namespace InleverOpdracht1
 
             if (ThisDAL.CheckUser(username, passHash))
             {
-                HttpCookie loginCookie = new HttpCookie("isLoggedIn");
-                loginCookie.Value = "true";
+                HttpCookie loginCookie = new HttpCookie("isLoggedIn")
+                {
+                    Value = "true"
+                };
                 Response.Cookies.Add(loginCookie);
-                redirectAfterLogin();
+                RedirectAfterLogin();
             } else
             {
                 LoginMsg.Text = "User not found";
@@ -50,12 +59,20 @@ namespace InleverOpdracht1
             }
         }
 
-        private void redirectAfterLogin()
+        private void RedirectAfterLogin()
         {
+
+            var page = Request.QueryString["p"];
+
             // Check if user needs to be redirected to previous page
-            if (String.IsNullOrEmpty(Request.QueryString["page"]))
+            if (String.IsNullOrEmpty(page))
             {
                 Response.Redirect("Default");
+            } else if(page == "edit")
+            {
+                // Get book id from URL
+                var bookId = Request.QueryString["id"];
+                Response.Redirect("Edit?id=" + bookId);
             }
         }
 
