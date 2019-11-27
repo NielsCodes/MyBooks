@@ -11,6 +11,9 @@ namespace InleverOpdracht1
 {
     public partial class Book : System.Web.UI.Page
     {
+
+        private SingleBook book;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -26,7 +29,7 @@ namespace InleverOpdracht1
             }
             
             // Retrieve Book object with ID
-            SingleBook book = thisDAL.GetBook(Int32.Parse(bookId));
+            book = thisDAL.GetBook(Int32.Parse(bookId));
 
             // Set page title equal to book title
             Page.Title = book.Title;
@@ -58,7 +61,8 @@ namespace InleverOpdracht1
 
         protected void BookEditButton_Click(object sender, EventArgs e)
         {
-
+            var url = "Edit.aspx?id=" + book.Id;
+            Response.Redirect(url);
         }
     }
 }

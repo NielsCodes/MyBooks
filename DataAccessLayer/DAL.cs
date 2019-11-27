@@ -112,5 +112,40 @@ namespace InleverOpdracht1.DataAccessLayer
             return book;
         }
 
+        public bool CheckUser(string username, string password)
+        {
+            var userFound = false;
+            var resultCount = 0;
+
+            using (var connection = new SqlConnection())
+            {
+                using(var cmd = new SqlCommand())
+                {
+                    connection.ConnectionString = connectionString;
+                    connection.Open();
+                    cmd.Connection = connection;
+                    cmd.CommandText = "SELECT id FROM Users WHERE username=@username AND password=@password";
+                    cmd.Parameters.AddWithValue("username", username);
+                    cmd.Parameters.AddWithValue("password", password);
+
+                    using(var reader = cmd.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            resultCount++;
+                        }
+                    }
+                }
+            }
+
+            if(resultCount == 1)
+            {
+                userFound = true;
+            }
+
+            return userFound;
+        }
+
     }
 }
