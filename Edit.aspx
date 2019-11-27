@@ -52,7 +52,7 @@
             <%-- Release date --%>
             <%-- TODO: Change date format --%>
             <label>Release date</label>
-            <asp:TextBox ID="BookReleaseDateInput" TextMode="Date" runat="server"></asp:TextBox>
+            <asp:TextBox ID="BookReleaseDateInput" runat="server"></asp:TextBox>
 
             <%-- Price --%>
             <label>Price</label>
@@ -61,7 +61,7 @@
             <%-- Purchase date --%>
             <%-- TODO: Change date format --%>
             <label>Purchase date</label>
-            <asp:TextBox ID="BookPurchaseDateInput" TextMode="Date" runat="server"></asp:TextBox>
+            <asp:TextBox ID="BookPurchaseDateInput" runat="server"></asp:TextBox>
 
             <%-- Price --%>
             <label>Purchase price</label>

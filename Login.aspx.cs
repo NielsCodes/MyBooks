@@ -13,7 +13,7 @@ namespace InleverOpdracht1
     public partial class Login : System.Web.UI.Page
     {
 
-        private DAL ThisDAL = new DAL();
+        private DAL _thisDAL = new DAL();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,7 +43,7 @@ namespace InleverOpdracht1
             // Password in database is SHA256 hashed
             var passHash = Sha256_hash(password);
 
-            if (ThisDAL.CheckUser(username, passHash))
+            if (_thisDAL.CheckUser(username, passHash))
             {
                 HttpCookie loginCookie = new HttpCookie("isLoggedIn")
                 {

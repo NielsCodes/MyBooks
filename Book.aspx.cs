@@ -18,7 +18,7 @@ namespace InleverOpdracht1
         {
 
             // Initialize connection to Data Access Layer
-            DAL thisDAL = new DAL();
+            DAL _thisDAL = new DAL();
 
             // Retrieve book ID from URL parameter.
             // If not present, redirect to home
@@ -29,7 +29,7 @@ namespace InleverOpdracht1
             }
             
             // Retrieve Book object with ID
-            book = thisDAL.GetBook(Int32.Parse(bookId));
+            book = _thisDAL.GetBook(Int32.Parse(bookId));
 
             // Set page title equal to book title
             Page.Title = book.Title;
