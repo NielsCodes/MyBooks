@@ -22,9 +22,13 @@ namespace InleverOpdracht1
             _bookCollection = _thisDAL.GetBooks();
         }
 
-        protected void SeeBookButton_Click(object sender, EventArgs e)
+        protected void SeeBookButton_Command(object sender, CommandEventArgs e)
         {
+            // Cast event originator as Button
+            Button btn = (Button)sender;
 
+            var passedId = btn.CommandArgument.ToString();
+            Response.Redirect("Book?id=" + passedId);
         }
     }
 }

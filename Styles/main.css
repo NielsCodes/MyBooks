@@ -4,7 +4,6 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 20px;
     grid-row-gap: 50px;
-    margin-top: 100px;
 }
 
 #collection-container .collection-item {
@@ -25,18 +24,26 @@
     color: #888;
 }
 
+#collection-container .collection-item .genre, #collection-container .collection-item .series, #collection-container .collection-item .language, #collection-container .collection-item .release-date {
+    display: none;
+}
+
 #collection-container .collection-item .view-btn {
     background: #FF8587;
     border: none;
     color: #fff;
     padding: 10px 20px;
     margin-top: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
     transition: all 0.2s ease;
 }
 
 #collection-container .collection-item .view-btn:hover {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
+
 
 
 /* Book overview */
