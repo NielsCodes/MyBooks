@@ -5,7 +5,7 @@
     <h1>My Book collection</h1>
 
     <div id="book-overview-wrapper">
-        <asp:GridView ID="BookGrid" DataSourceID="SqlDataSource1" runat="server" AutoGenerateColumns="False" AllowPaging="true" AllowSorting="true">
+        <asp:GridView ID="CollectionTable" runat="server" AutoGenerateColumns="False" AllowPaging="true">
             <Columns>
                 <%-- Convert image URL into image --%>
                 <asp:TemplateField HeaderText="Cover"> 
@@ -27,7 +27,6 @@
             </Columns>
         </asp:GridView>
         
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MyBooksConnectionString1 %>" ProviderName="<%$ ConnectionStrings:MyBooksConnectionString1.ProviderName %>" SelectCommand="SELECT [id], [title], [author], [genre], [series], [language], [edition], [publisher], [pages], [cover], [coverType], [isbn], [releaseDate], [purchaseDate], [price], [purchasePrice] FROM [Books]"></asp:SqlDataSource>
-    </div>
+   </div>
     
 </asp:Content>

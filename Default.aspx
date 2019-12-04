@@ -11,7 +11,6 @@
             <div id="search-controls">
                 <asp:TextBox ID="SearchQueryInput" runat="server" placeholder="Search by book, author or series"></asp:TextBox>
                 <asp:Button ID="ExecuteSearchButton" runat="server" Text="Search" OnClick="ExecuteSearchButton_Click" />
-                <asp:Label ID="TestLabel" runat="server"></asp:Label>
             </div>
             
         </div>

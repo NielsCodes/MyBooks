@@ -56,12 +56,12 @@
     background: #eee
 }
 
-#MainContent_BookGrid {
+#MainContent_CollectionTable {
     border: none;
     width: 100%;
 }
 
-#MainContent_BookGrid .book-cover {
+#MainContent_CollectionTable .book-cover {
     max-height: 200px
 }
 

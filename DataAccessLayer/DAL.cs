@@ -67,7 +67,16 @@ namespace InleverOpdracht1.DataAccessLayer
                     connection.ConnectionString = connectionString;
                     connection.Open();
                     cmd.Connection = connection;
-                    cmd.CommandText = "SELECT * FROM Books ORDER BY id";
+                    cmd.CommandText = 
+                        "SELECT b.id, b.title, a.name author, g.name genre, s.name series, l.name language, b.edition, p.name publsher, b.pages, b.cover, c.name coverType, b.isbn, b.releaseDate, b.purchaseDate, b.price, b.purchasePrice " +
+                        "FROM Books b " +
+                        "INNER JOIN Authors     a ON b.authorId = a.id " +
+                        "INNER JOIN Genres      g ON b.genreId = g.id " +
+                        "INNER JOIN Series      s ON b.seriesId = s.id " +
+                        "INNER JOIN Languages   l ON b.languageId = l.id " +
+                        "INNER JOIN Publishers  p ON b.publisherId = p.id " +
+                        "INNER JOIN CoverTypes  c ON b.coverTypeId = c.id " +
+                        "ORDER BY b.id";
 
                     using(var reader = cmd.ExecuteReader())
                     {
@@ -96,7 +105,16 @@ namespace InleverOpdracht1.DataAccessLayer
                     connection.ConnectionString = connectionString;
                     connection.Open();
                     cmd.Connection = connection;
-                    cmd.CommandText = "SELECT * FROM Books WHERE id=@bookId";
+                    cmd.CommandText =
+                        "SELECT b.id, b.title, a.name author, g.name genre, s.name series, l.name language, b.edition, p.name publsher, b.pages, b.cover, c.name coverType, b.isbn, b.releaseDate, b.purchaseDate, b.price, b.purchasePrice " +
+                        "FROM Books b " +
+                        "INNER JOIN Authors     a ON b.authorId = a.id " +
+                        "INNER JOIN Genres      g ON b.genreId = g.id " +
+                        "INNER JOIN Series      s ON b.seriesId = s.id " +
+                        "INNER JOIN Languages   l ON b.languageId = l.id " +
+                        "INNER JOIN Publishers  p ON b.publisherId = p.id " +
+                        "INNER JOIN CoverTypes  c ON b.coverTypeId = c.id " +
+                        "WHERE b.id = @bookId";
                     cmd.Parameters.AddWithValue("bookId", id);
 
                     using(var reader = cmd.ExecuteReader())
