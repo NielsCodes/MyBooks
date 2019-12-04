@@ -8,7 +8,7 @@
         <asp:GridView ID="BookGrid" DataSourceID="SqlDataSource1" runat="server" AutoGenerateColumns="False" AllowPaging="true" AllowSorting="true">
             <Columns>
                 <%-- Convert image URL into image --%>
-                <asp:TemplateField HeaderText="Cover" runat="server"> 
+                <asp:TemplateField HeaderText="Cover"> 
                     <ItemTemplate>
                         <asp:Image CssClass="book-cover" ImageUrl='<%# Eval("cover") %>' runat="server"/>
                     </ItemTemplate>
