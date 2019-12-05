@@ -2,7 +2,18 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h1>My Book collection</h1>
+    <div id="CollectionHeader">
+
+        <h1>
+            <asp:label runat="server" ID="CollectionTitle">MyBooks collection</asp:label>
+        </h1>
+
+        <div id="CollectionHeaderSearchControls">
+            <asp:TextBox ID="CollectionSearchInput" runat="server"></asp:TextBox>
+        </div>
+
+    </div>
+    
 
     <div id="book-overview-wrapper">
         <asp:GridView ID="CollectionTable" runat="server" AutoGenerateColumns="False" AllowPaging="true">
@@ -14,10 +25,10 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="title" HeaderText="Title" SortExpression="title" />
-                <asp:BoundField DataField="author" HeaderText="Author" SortExpression="author" />
-                <asp:BoundField DataField="genre" HeaderText="Genre" SortExpression="genre" />
-                <asp:BoundField DataField="series" HeaderText="Series" SortExpression="series" />
-                <asp:BoundField DataField="language" HeaderText="Language" SortExpression="language" />
+                <asp:BoundField DataField="author.Name" HeaderText="Author" SortExpression="author" />
+                <asp:BoundField DataField="genre.Name" HeaderText="Genre" SortExpression="genre" />
+                <asp:BoundField DataField="series.Name" HeaderText="Series" SortExpression="series" />
+                <asp:BoundField DataField="language.Name" HeaderText="Language" SortExpression="language" />
                 <asp:BoundField DataField="releaseDate" HeaderText="Release date" SortExpression="releaseDate" />
                 <asp:TemplateField HeaderText="More information">
                     <ItemTemplate>

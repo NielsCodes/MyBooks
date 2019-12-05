@@ -12,8 +12,14 @@ namespace InleverOpdracht1
     public partial class Edit : System.Web.UI.Page
     {
 
-        private SingleBook book;
-        private DAL _thisDal = new DAL(); 
+        private SingleBook _book;
+        private DAL _thisDal = new DAL();
+        private List<MetaInfo> _authors = new List<MetaInfo>();
+        private List<MetaInfo> _genres = new List<MetaInfo>();
+        private List<MetaInfo> _series = new List<MetaInfo>();
+        private List<MetaInfo> _languages = new List<MetaInfo>();
+        private List<MetaInfo> _publishers = new List<MetaInfo>();
+        private List<MetaInfo> _coverTypes = new List<MetaInfo>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,28 +37,38 @@ namespace InleverOpdracht1
                 Response.Redirect("Login?p=edit&id=" + bookId);
             }
 
-            book = _thisDal.GetBook(Int32.Parse(bookId));
+            _book = _thisDal.GetBook(Int32.Parse(bookId));
+            _authors = _thisDal.GetMeta("Authors");
+            _genres = _thisDal.GetMeta("Genres");
+            _series = _thisDal.GetMeta("Series");
+            _languages = _thisDal.GetMeta("Languages");
+            _publishers = _thisDal.GetMeta("Publishers");
+            _coverTypes = _thisDal.GetMeta("CoverTypes");
+
+            BookAuthorInput.DataSource = _authors;
+            BookGenreInput.DataSource = _genres;
+            BookSeriesInput.DataSource = _series;
+            BookLanguageInput.DataSource = _languages;
+            BookPublisherInput.DataSource = _publishers;
+            BookCoverTypeInput.DataSource = _coverTypes;
+
 
             // Bind Book data to page elements
             // Required data
-            BookCoverInput.Text = book.Cover;
-            BookTitleInput.Text = book.Title;
-            BookAuthorInput.Text = book.Author;
+            BookCoverInput.Text = _book.Cover;
+            BookTitleInput.Text = _book.Title;
+            BookAuthorInput.Text = _book.Author.Name;
 
             // Optional data - perform check whether value is not null or empty
-            BookGenreInput.Text = string.IsNullOrEmpty(book.Genre) ? "" : book.Genre;
-            BookSeriesInput.Text = string.IsNullOrEmpty(book.Series) ? "" : book.Series;
-            BookLanguageInput.Text = string.IsNullOrEmpty(book.Language) ? "" : book.Language;
-            BookEditionInput.Text = string.IsNullOrEmpty(book.Edition) ? "-" : book.Edition;
-            BookPublisherInput.Text = string.IsNullOrEmpty(book.Publisher) ? "" : book.Publisher;
-            BookPagesInput.Text = book.Pages == 0 ? "" : book.Pages.ToString();
-            BookCoverTypeInput.Text = string.IsNullOrEmpty(book.CoverType) ? "" : book.CoverType;
-            BookISBNInput.Text = string.IsNullOrEmpty(book.Isbn) ? "" : book.Isbn;
-            BookReleaseDateInput.Text = string.IsNullOrEmpty(book.ReleaseDate) ? "" : book.ReleaseDate;
-            BookPriceInput.Text = book.Price == 0 ? "0" : book.Price.ToString();
+            BookEditionInput.Text = string.IsNullOrEmpty(_book.Edition) ? "-" : _book.Edition;
+            BookPagesInput.Text = _book.Pages == 0 ? "" : _book.Pages.ToString();
 
-            BookPurchaseDateInput.Text = string.IsNullOrEmpty(book.PurchaseDate) ? "" : book.PurchaseDate;
-            BookPurchasePriceInput.Text = book.PurchasePrice == 0 ? "0" : book.PurchasePrice.ToString();
+            BookISBNInput.Text = string.IsNullOrEmpty(_book.Isbn) ? "" : _book.Isbn;
+            BookReleaseDateInput.Text = string.IsNullOrEmpty(_book.ReleaseDate) ? "" : _book.ReleaseDate;
+            BookPriceInput.Text = _book.Price == 0 ? "0" : _book.Price.ToString();
+
+            BookPurchaseDateInput.Text = string.IsNullOrEmpty(_book.PurchaseDate) ? "" : _book.PurchaseDate;
+            BookPurchasePriceInput.Text = _book.PurchasePrice == 0 ? "0" : _book.PurchasePrice.ToString();
 
         }
 

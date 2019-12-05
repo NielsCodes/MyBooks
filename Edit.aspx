@@ -7,23 +7,23 @@
 
             <%-- Title --%>
             <label>Title</label>
-            <asp:TextBox ID="BookTitleInput" runat="server"></asp:TextBox>
+            <asp:ListBox ID="BookTitleInput" runat="server"></asp:ListBox>
 
             <%-- Author --%>
             <label>Author</label>
-            <asp:TextBox ID="BookAuthorInput" runat="server"></asp:TextBox>
+            <asp:ListBox ID="BookAuthorInput" runat="server"></asp:ListBox>
 
             <%-- Genre --%>
             <label>Genre</label>
-            <asp:TextBox ID="BookGenreInput" runat="server"></asp:TextBox>
+            <asp:ListBox ID="BookGenreInput" runat="server"></asp:ListBox>
 
             <%-- Series --%>
             <label>Series</label>
-            <asp:TextBox ID="BookSeriesInput" runat="server"></asp:TextBox>
+            <asp:ListBox ID="BookSeriesInput" runat="server"></asp:ListBox>
 
             <%-- Language --%>
             <label>Language</label>
-            <asp:TextBox ID="BookLanguageInput" runat="server"></asp:TextBox>
+            <asp:ListBox ID="BookLanguageInput" runat="server"></asp:ListBox>
 
             <%-- Edition --%>
             <label>Edition</label>
@@ -31,7 +31,7 @@
 
             <%-- Publisher --%>
             <label>Publisher</label>
-            <asp:TextBox ID="BookPublisherInput" runat="server"></asp:TextBox>
+            <asp:ListBox ID="BookPublisherInput" runat="server"></asp:ListBox>
 
             <%-- Pages --%>
             <label>Pages</label>
@@ -43,7 +43,7 @@
 
             <%-- Cover Type --%>
             <label>Cover Type</label>
-            <asp:TextBox ID="BookCoverTypeInput" runat="server"></asp:TextBox>
+            <asp:ListBox ID="BookCoverTypeInput" runat="server"></asp:ListBox>
 
             <%-- ISBN --%>
             <label>ISBN</label>

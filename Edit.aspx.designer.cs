@@ -21,7 +21,7 @@ namespace InleverOpdracht1
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BookTitleInput;
+        protected global::System.Web.UI.WebControls.ListBox BookTitleInput;
 
         /// <summary>
         /// BookAuthorInput control.
@@ -30,7 +30,7 @@ namespace InleverOpdracht1
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BookAuthorInput;
+        protected global::System.Web.UI.WebControls.ListBox BookAuthorInput;
 
         /// <summary>
         /// BookGenreInput control.
@@ -39,7 +39,7 @@ namespace InleverOpdracht1
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BookGenreInput;
+        protected global::System.Web.UI.WebControls.ListBox BookGenreInput;
 
         /// <summary>
         /// BookSeriesInput control.
@@ -48,7 +48,7 @@ namespace InleverOpdracht1
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BookSeriesInput;
+        protected global::System.Web.UI.WebControls.ListBox BookSeriesInput;
 
         /// <summary>
         /// BookLanguageInput control.
@@ -57,7 +57,7 @@ namespace InleverOpdracht1
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BookLanguageInput;
+        protected global::System.Web.UI.WebControls.ListBox BookLanguageInput;
 
         /// <summary>
         /// BookEditionInput control.
@@ -75,7 +75,7 @@ namespace InleverOpdracht1
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BookPublisherInput;
+        protected global::System.Web.UI.WebControls.ListBox BookPublisherInput;
 
         /// <summary>
         /// BookPagesInput control.
@@ -102,7 +102,7 @@ namespace InleverOpdracht1
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BookCoverTypeInput;
+        protected global::System.Web.UI.WebControls.ListBox BookCoverTypeInput;
 
         /// <summary>
         /// BookISBNInput control.

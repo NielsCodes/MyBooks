@@ -17,7 +17,21 @@ namespace InleverOpdracht1
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            _books = _thisDal.GetBooks();
+
+            string searchQuery = Request.QueryString["q"];
+
+            // Get all books if no search query
+            // Get filtered result if search query
+            if (String.IsNullOrEmpty(searchQuery))
+            {
+                _books = _thisDal.GetBooks();
+            } else
+            {
+                _books = _thisDal.GetBooks(searchQuery);
+                CollectionTitle.Text = "Showing results for '" + searchQuery + "'";
+            }
+
+            
             CollectionTable.DataSource = _books;
             CollectionTable.DataBind();
         }
