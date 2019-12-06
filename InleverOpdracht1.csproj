@@ -102,6 +102,7 @@
     <Content Include="About.aspx" />
     <Content Include="Assets\books-stack-of-three.png" />
     <Content Include="Book.aspx" />
+    <Content Include="collection.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -179,6 +180,13 @@
     <Compile Include="Book.aspx.designer.cs">
       <DependentUpon>Book.aspx</DependentUpon>
     </Compile>
+    <Compile Include="collection.aspx.cs">
+      <DependentUpon>collection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="collection.aspx.designer.cs">
+      <DependentUpon>collection.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -211,6 +219,7 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\MetaInfo.cs" />
     <Compile Include="Models\SingleBook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

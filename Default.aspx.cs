@@ -15,5 +15,20 @@ namespace InleverOpdracht1
         {
 
         }
+
+        protected void ExecuteSearchButton_Click(object sender, EventArgs e)
+        {
+            // Get content of input
+            string searchInput = SearchQueryInput.Text;
+
+            // Show full collection if no search is submitted
+            if (String.IsNullOrEmpty(searchInput))
+            {
+                Response.Redirect("/collection");
+            } else
+            {
+                Response.Redirect("/collection?q=" + searchInput);
+            }
+        }
     }
 }

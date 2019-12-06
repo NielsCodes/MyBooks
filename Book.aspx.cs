@@ -38,16 +38,16 @@ namespace InleverOpdracht1
             // Required data
             CoverImage.ImageUrl = book.Cover;
             BookTitle.InnerText = book.Title;
-            BookAuthor.InnerText = book.Author;
+            BookAuthor.InnerText = book.Author.Name;
 
             // Optional data - perform check whether value is not null or empty
-            BookGenre.InnerHtml = string.IsNullOrEmpty(book.Genre) ? "-" : book.Genre;
-            BookSeries.InnerHtml = string.IsNullOrEmpty(book.Series) ? "-" : book.Series;
-            BookLanguage.InnerHtml = string.IsNullOrEmpty(book.Language) ? "-" : book.Language;
+            BookGenre.InnerHtml = string.IsNullOrEmpty(book.Genre.Name) ? "-" : book.Genre.Name;
+            BookSeries.InnerHtml = string.IsNullOrEmpty(book.Series.Name) ? "-" : book.Series.Name;
+            BookLanguage.InnerHtml = string.IsNullOrEmpty(book.Language.Name) ? "-" : book.Language.Name;
             BookEdition.InnerHtml = string.IsNullOrEmpty(book.Edition) ? "-" : book.Edition;
-            BookPublisher.InnerHtml = string.IsNullOrEmpty(book.Publisher) ? "-" : book.Publisher;
+            BookPublisher.InnerHtml = string.IsNullOrEmpty(book.Publisher.Name) ? "-" : book.Publisher.Name;
             BookPages.InnerHtml = book.Pages == 0 ? "-" : book.Pages.ToString();
-            BookCoverType.InnerHtml = string.IsNullOrEmpty(book.CoverType) ? "-" : book.CoverType;
+            BookCoverType.InnerHtml = string.IsNullOrEmpty(book.CoverType.Name) ? "-" : book.CoverType.Name;
             BookISBN.InnerHtml = string.IsNullOrEmpty(book.Isbn) ? "-" : book.Isbn;
             BookReleaseDate.InnerHtml = string.IsNullOrEmpty(book.ReleaseDate) ? "-" : book.ReleaseDate;
             BookPrice.InnerHtml = book.Price == 0 ? "-" : "&euro;" + book.Price.ToString();

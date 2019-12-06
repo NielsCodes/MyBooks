@@ -11,15 +11,15 @@ namespace InleverOpdracht1.Models
         // Properties
         private int _id;
         private string _title;
-        private string _author;
-        private string _genre;
-        private string _series;
-        private string _language;
+        private MetaInfo _author;
+        private MetaInfo _genre;
+        private MetaInfo _series;
+        private MetaInfo _language;
         private string _edition;
-        private string _publisher;
+        private MetaInfo _publisher;
         private int _pages;
         private string _cover; // URL
-        private string _coverType;
+        private MetaInfo _coverType;
         private string _isbn;
         private string _releaseDate;
         private string _purchaseDate;
@@ -27,18 +27,19 @@ namespace InleverOpdracht1.Models
         private int _purchasePrice;
         
         // Constructor
+        // TODO: change to accept null as meta value
         public SingleBook(
             int id, 
             string title, 
-            string author, 
-            string genre = null, 
-            string series = null, 
-            string language = null, 
+            MetaInfo author, 
+            MetaInfo genre = null, 
+            MetaInfo series = null, 
+            MetaInfo language = null, 
             string edition = null, 
-            string publisher = null, 
+            MetaInfo publisher = null, 
             int pages = 0, 
             string cover = null, 
-            string coverType = null,
+            MetaInfo coverType = null,
             string isbn = null, 
             string releaseDate = null, 
             string purchaseDate = null, 
@@ -76,25 +77,25 @@ namespace InleverOpdracht1.Models
             set => _title = value;
         }
 
-        public string Author
+        public MetaInfo Author
         {
             get => _author;
             set => _author = value;
         }
 
-        public string Genre
+        public MetaInfo Genre
         {
             get => _genre;
             set => _genre = value;
         }
 
-        public string Series
+        public MetaInfo Series
         {
             get => _series;
             set => _series = value;
         }
 
-        public string Language
+        public MetaInfo Language
         {
             get => _language;
             set => _language = value;
@@ -106,7 +107,7 @@ namespace InleverOpdracht1.Models
             set => _edition = value;
         }
 
-        public string Publisher
+        public MetaInfo Publisher
         {
             get => _publisher;
             set => _publisher = value;
@@ -124,7 +125,7 @@ namespace InleverOpdracht1.Models
             set => _cover = value;
         }
 
-        public string CoverType
+        public MetaInfo CoverType
         {
             get => _coverType;
             set => _coverType = value;
