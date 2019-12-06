@@ -37,7 +37,10 @@ namespace InleverOpdracht1
                 Response.Redirect("Login?p=edit&id=" + bookId);
             }
 
+            // Get book info from DB
             _book = _thisDal.GetBook(Int32.Parse(bookId));
+
+            // Get dropdown contents from DB
             _authors = _thisDal.GetMeta("Authors");
             _genres = _thisDal.GetMeta("Genres");
             _series = _thisDal.GetMeta("Series");
@@ -45,12 +48,44 @@ namespace InleverOpdracht1
             _publishers = _thisDal.GetMeta("Publishers");
             _coverTypes = _thisDal.GetMeta("CoverTypes");
 
+            // Bind author data to dropdown
             BookAuthorInput.DataSource = _authors;
+            BookAuthorInput.DataTextField = "Name";
+            BookAuthorInput.DataValueField = "Id";
+            BookAuthorInput.DataBind();
+            BookAuthorInput.Items.FindByValue(_book.Author.Id.ToString());
+
+            // Bind genre data to dropdown
             BookGenreInput.DataSource = _genres;
+            BookGenreInput.DataTextField = "Name";
+            BookGenreInput.DataValueField = "Id";
+            BookGenreInput.DataBind();
+            BookGenreInput.Items.FindByValue(_book.Genre.Id.ToString());
+
+            // Bind series data to dropdown
             BookSeriesInput.DataSource = _series;
+            BookSeriesInput.DataBind();
+
+            // Bind language data to dropdown
             BookLanguageInput.DataSource = _languages;
+            BookLanguageInput.DataTextField = "Name";
+            BookLanguageInput.DataValueField = "Id";
+            BookLanguageInput.DataBind();
+            BookLanguageInput.Items.FindByValue(_book.Language.Id.ToString()).Selected = true;
+
+            // Bind publisher data to dropdown
             BookPublisherInput.DataSource = _publishers;
+            BookPublisherInput.DataTextField = "Name";
+            BookPublisherInput.DataValueField = "Id";
+            BookPublisherInput.DataBind();
+            BookPublisherInput.Items.FindByValue(_book.Publisher.Id.ToString());
+
+            // Bind coverType data to dropdown
             BookCoverTypeInput.DataSource = _coverTypes;
+            BookCoverTypeInput.DataTextField = "Name";
+            BookCoverTypeInput.DataValueField = "Id";
+            BookCoverTypeInput.DataBind();
+            BookCoverTypeInput.Items.FindByValue(_book.CoverType.Id.ToString());
 
 
             // Bind Book data to page elements

@@ -144,7 +144,7 @@ namespace InleverOpdracht1.DataAccessLayer
                     connection.Open();
                     cmd.Connection = connection;
                     cmd.CommandText =
-                        "SELECT b.id, b.title, b.authorId, a.name author, b.genreId, g.name genre, b.seriesId, s.name series, b.languageId, l.name language, b.edition, b.publisherId, p.name publisher, b.pages, b.cover, b.coverTypeId, c.name coverType, b.isbn, b.releaseDate, b.purchaseDate, b.price, b.purchasePrice " +
+                        "SELECT b.id, b.title, b.authorId, a.name author, b.genreId, g.name genre, b.seriesId, s.name series, b.languageId, l.name language, b.edition, b.publisherId, p.name publisher, b.pages, b.cover, b.coverTypeId , c.name coverType, b.isbn, b.releaseDate, b.purchaseDate, b.price, b.purchasePrice " +
                         "FROM Books b " +
                         "INNER JOIN Authors     a ON b.authorId = a.id " +
                         "INNER JOIN Genres      g ON b.genreId = g.id " +
