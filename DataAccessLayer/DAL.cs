@@ -16,7 +16,6 @@ namespace InleverOpdracht1.DataAccessLayer
 
         private SingleBook CreateBookFromDB(IDataRecord record)
         {
-            Debug.WriteLine(record);
 
             int id = record.GetInt32(record.GetOrdinal("id"));
             string title = record.GetString(record.GetOrdinal("title"));

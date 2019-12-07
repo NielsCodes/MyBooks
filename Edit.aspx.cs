@@ -3,6 +3,7 @@ using InleverOpdracht1.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -23,6 +24,8 @@ namespace InleverOpdracht1
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
             // Retrieve book ID from URL parameter.
             // If not present, redirect to home
             string bookId = Request.QueryString["id"];
@@ -40,6 +43,57 @@ namespace InleverOpdracht1
             // Get book info from DB
             _book = _thisDal.GetBook(Int32.Parse(bookId));
 
+            if (!IsPostBack)
+            {
+                PrePopulate();
+            }
+
+        }
+
+        protected void SaveBookBtn_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine(BookTitleInput.Text);
+            _thisDal.UpdateBook(
+                _book.Id,
+                BookTitleInput.Text,
+                _book.Author.Id,
+                _book.Genre.Id,
+                _book.Series.Id,
+                _book.Language.Id,
+                _book.Edition,
+                _book.Publisher.Id,
+                _book.Pages,
+                _book.Cover,
+                _book.CoverType.Id,
+                _book.Isbn,
+                _book.ReleaseDate,
+                _book.PurchaseDate,
+                _book.Price,
+                _book.PurchasePrice
+            );
+
+            /*_thisDal.UpdateBook(
+                _book.Id,
+                BookTitleInput.Text,
+                Int32.Parse(BookAuthorInput.SelectedValue),
+                Int32.Parse(BookGenreInput.SelectedValue),
+                Int32.Parse(BookSeriesInput.SelectedValue),
+                Int32.Parse(BookLanguageInput.SelectedValue),
+                BookEditionInput.Text,
+                Int32.Parse(BookPublisherInput.SelectedValue),
+                Int32.Parse(BookPagesInput.Text),
+                BookCoverInput.Text,
+                Int32.Parse(BookCoverTypeInput.SelectedValue),
+                BookISBNInput.Text,
+                BookReleaseDateInput.Text,
+                BookPurchaseDateInput.Text,
+                Int32.Parse(BookPriceInput.Text),
+                Int32.Parse(BookPurchasePriceInput.Text)
+            );*/
+        }
+
+        private void PrePopulate()
+        {
             // Get dropdown contents from DB
             _authors = _thisDal.GetMeta("Authors");
             _genres = _thisDal.GetMeta("Genres");
@@ -92,7 +146,6 @@ namespace InleverOpdracht1
             // Required data
             BookCoverInput.Text = _book.Cover;
             BookTitleInput.Text = _book.Title;
-            BookAuthorInput.Text = _book.Author.Name;
 
             // Optional data - perform check whether value is not null or empty
             BookEditionInput.Text = string.IsNullOrEmpty(_book.Edition) ? "-" : _book.Edition;
@@ -104,12 +157,6 @@ namespace InleverOpdracht1
 
             BookPurchaseDateInput.Text = string.IsNullOrEmpty(_book.PurchaseDate) ? "" : _book.PurchaseDate;
             BookPurchasePriceInput.Text = _book.PurchasePrice == 0 ? "0" : _book.PurchasePrice.ToString();
-
-        }
-
-        protected void SaveBookBtn_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
