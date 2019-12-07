@@ -43,6 +43,7 @@ namespace InleverOpdracht1
             // Get book info from DB
             _book = _thisDal.GetBook(Int32.Parse(bookId));
 
+            // Only populate fields with database data if page_load is not a postback (a reload of the page on button press)
             if (!IsPostBack)
             {
                 PrePopulate();
@@ -56,20 +57,20 @@ namespace InleverOpdracht1
             _thisDal.UpdateBook(
                 _book.Id,
                 BookTitleInput.Text,
-                _book.Author.Id,
-                _book.Genre.Id,
-                _book.Series.Id,
-                _book.Language.Id,
-                _book.Edition,
-                _book.Publisher.Id,
-                _book.Pages,
-                _book.Cover,
-                _book.CoverType.Id,
-                _book.Isbn,
-                _book.ReleaseDate,
-                _book.PurchaseDate,
-                _book.Price,
-                _book.PurchasePrice
+                int.Parse(BookAuthorInput.SelectedValue),
+                int.Parse(BookGenreInput.SelectedValue),
+                int.Parse(BookSeriesInput.SelectedValue),
+                int.Parse(BookLanguageInput.SelectedValue),
+                BookEditionInput.Text,
+                int.Parse(BookPublisherInput.SelectedValue),
+                int.Parse(BookPagesInput.Text),
+                BookCoverInput.Text,
+                int.Parse(BookCoverTypeInput.SelectedValue),
+                BookISBNInput.Text,
+                BookReleaseDateInput.Text,
+                BookPurchaseDateInput.Text,
+                int.Parse(BookPriceInput.Text),
+                int.Parse(BookPurchasePriceInput.Text)
             );
 
             /*_thisDal.UpdateBook(
@@ -118,7 +119,10 @@ namespace InleverOpdracht1
 
             // Bind series data to dropdown
             BookSeriesInput.DataSource = _series;
+            BookSeriesInput.DataTextField = "Name";
+            BookSeriesInput.DataValueField = "Id";
             BookSeriesInput.DataBind();
+            BookSeriesInput.Items.FindByValue(_book.Series.Id.ToString());
 
             // Bind language data to dropdown
             BookLanguageInput.DataSource = _languages;
