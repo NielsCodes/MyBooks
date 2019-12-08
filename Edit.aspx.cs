@@ -53,7 +53,7 @@ namespace InleverOpdracht1
 
         protected void SaveBookBtn_Click(object sender, EventArgs e)
         {
-            Debug.WriteLine(BookTitleInput.Text);
+
             _thisDal.UpdateBook(
                 _book.Id,
                 BookTitleInput.Text,
@@ -73,24 +73,8 @@ namespace InleverOpdracht1
                 int.Parse(BookPurchasePriceInput.Text)
             );
 
-            /*_thisDal.UpdateBook(
-                _book.Id,
-                BookTitleInput.Text,
-                Int32.Parse(BookAuthorInput.SelectedValue),
-                Int32.Parse(BookGenreInput.SelectedValue),
-                Int32.Parse(BookSeriesInput.SelectedValue),
-                Int32.Parse(BookLanguageInput.SelectedValue),
-                BookEditionInput.Text,
-                Int32.Parse(BookPublisherInput.SelectedValue),
-                Int32.Parse(BookPagesInput.Text),
-                BookCoverInput.Text,
-                Int32.Parse(BookCoverTypeInput.SelectedValue),
-                BookISBNInput.Text,
-                BookReleaseDateInput.Text,
-                BookPurchaseDateInput.Text,
-                Int32.Parse(BookPriceInput.Text),
-                Int32.Parse(BookPurchasePriceInput.Text)
-            );*/
+            Response.Redirect("collection");
+
         }
 
         private void PrePopulate()
@@ -161,6 +145,12 @@ namespace InleverOpdracht1
 
             BookPurchaseDateInput.Text = string.IsNullOrEmpty(_book.PurchaseDate) ? "" : _book.PurchaseDate;
             BookPurchasePriceInput.Text = _book.PurchasePrice == 0 ? "0" : _book.PurchasePrice.ToString();
+        }
+
+        protected void DeleteBookBtn_OnClick(object sender, EventArgs e)
+        {
+            _thisDal.RemoveBook(_book.Id);
+            Response.Redirect("collection");
         }
     }
 }

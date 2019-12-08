@@ -237,6 +237,23 @@ namespace InleverOpdracht1.DataAccessLayer
             }
         }
 
+        public void RemoveBook(int id)
+        {
+            using (SqlConnection connection = new SqlConnection())
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    connection.ConnectionString = connectionString;
+                    connection.Open();
+                    cmd.Connection = connection;
+                    cmd.CommandText = "REMOVE FROM Books WHERE id = @id";
+                    cmd.Parameters.AddWithValue("id", id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         public bool CheckUser(string username, string password)
         {
             var userFound = false;
