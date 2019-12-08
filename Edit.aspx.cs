@@ -147,7 +147,7 @@ namespace InleverOpdracht1
             BookPurchasePriceInput.Text = _book.PurchasePrice == 0 ? "0" : _book.PurchasePrice.ToString();
         }
 
-        protected void DeleteBookBtn_OnClick(object sender, EventArgs e)
+        protected void DeleteBookBtn_Click(object sender, EventArgs e)
         {
             _thisDal.RemoveBook(_book.Id);
             Response.Redirect("collection");

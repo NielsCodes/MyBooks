@@ -70,7 +70,7 @@
         </div>
 
         <asp:Button ID="SaveBookBtn" runat="server" Text="Save book" OnClick="SaveBookBtn_Click" />
-        <asp:Button ID="DeleteBookBtn" runat="server" Text="Delete book" OnClick="DeleteBookBtn_OnClick" />
+        <asp:Button ID="DeleteBookBtn" runat="server" Text="Delete book" OnClick="DeleteBookBtn_Click" />
 
     </main>
 

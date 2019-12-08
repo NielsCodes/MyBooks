@@ -82,7 +82,6 @@ namespace InleverOpdracht1.DataAccessLayer
             {
                 using(var cmd = new SqlCommand())
                 {
-                    connection.ConnectionString = connectionString;
                     connection.Open();
                     cmd.Connection = connection;
 
@@ -135,11 +134,10 @@ namespace InleverOpdracht1.DataAccessLayer
         {
             SingleBook book = null;
 
-            using(var connection = new SqlConnection())
+            using(var connection = new SqlConnection(connectionString))
             {
                 using(var cmd = new SqlCommand())
                 {
-                    connection.ConnectionString = connectionString;
                     connection.Open();
                     cmd.Connection = connection;
                     cmd.CommandText =
@@ -186,11 +184,10 @@ namespace InleverOpdracht1.DataAccessLayer
             int purchasePrice
             )
         {
-            using(var connection = new SqlConnection())
+            using(var connection = new SqlConnection(connectionString))
             {
                 using(var cmd = new SqlCommand())
                 {
-                    connection.ConnectionString = connectionString;
                     connection.Open();
                     cmd.Connection = connection;
 
@@ -237,13 +234,77 @@ namespace InleverOpdracht1.DataAccessLayer
             }
         }
 
-        public void RemoveBook(int id)
+        public void AddBook(
+            string title,
+            int authorId,
+            int genreId,
+            int seriesId,
+            int languageId,
+            string edition,
+            int publisherId,
+            int pages,
+            string cover,
+            int coverTypeId,
+            string isbn,
+            string releaseDate,
+            string purchaseDate,
+            int price,
+            int purchasePrice
+        )
         {
-            using (SqlConnection connection = new SqlConnection())
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    connection.ConnectionString = connectionString;
+                    connection.Open();
+                    cmd.Connection = connection;
+                    cmd.CommandText =
+                        "INSERT INTO Books (title, authorId, genreId, seriesId, languageId, edition, publisherId, pages, cover, coverTypeId, isbn, releaseDate, purchaseDate, price, purchasePrice) " +
+                        "VALUES (" +
+                        "@title," +
+                        "@authorId," +
+                        "@genreId," +
+                        "@seriesId," +
+                        "@languageId," +
+                        "@edition," +
+                        "@publisherId," +
+                        "@pages," +
+                        "@cover," +
+                        "@coverTypeId," +
+                        "@isbn," +
+                        "@releaseDate," +
+                        "@purchaseDate," +
+                        "@price," +
+                        "@purchasePrice" +
+                        ")";
+
+                    cmd.Parameters.AddWithValue("title", title);
+                    cmd.Parameters.AddWithValue("authorId", authorId);
+                    cmd.Parameters.AddWithValue("genreId", genreId);
+                    cmd.Parameters.AddWithValue("seriesId", seriesId);
+                    cmd.Parameters.AddWithValue("languageId", languageId);
+                    cmd.Parameters.AddWithValue("edition", edition);
+                    cmd.Parameters.AddWithValue("publisherId", publisherId);
+                    cmd.Parameters.AddWithValue("pages", pages);
+                    cmd.Parameters.AddWithValue("cover", cover);
+                    cmd.Parameters.AddWithValue("coverTypeId", coverTypeId);
+                    cmd.Parameters.AddWithValue("isbn", isbn);
+                    cmd.Parameters.AddWithValue("releaseDate", releaseDate);
+                    cmd.Parameters.AddWithValue("purchaseDate", purchaseDate);
+                    cmd.Parameters.AddWithValue("price", price);
+                    cmd.Parameters.AddWithValue("purchasePrice", purchasePrice);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void RemoveBook(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
                     connection.Open();
                     cmd.Connection = connection;
                     cmd.CommandText = "REMOVE FROM Books WHERE id = @id";
@@ -259,11 +320,10 @@ namespace InleverOpdracht1.DataAccessLayer
             var userFound = false;
             var resultCount = 0;
 
-            using (var connection = new SqlConnection())
+            using (var connection = new SqlConnection(connectionString))
             {
                 using(var cmd = new SqlCommand())
                 {
-                    connection.ConnectionString = connectionString;
                     connection.Open();
                     cmd.Connection = connection;
                     cmd.CommandText = "SELECT id FROM Users WHERE username=@username AND password=@password";
@@ -293,11 +353,10 @@ namespace InleverOpdracht1.DataAccessLayer
         {
             List<MetaInfo> _metaList = new List<MetaInfo>();
 
-            using(SqlConnection connection = new SqlConnection())
+            using(SqlConnection connection = new SqlConnection(connectionString))
             {
                 using(SqlCommand cmd = new SqlCommand())
                 {
-                    connection.ConnectionString = connectionString;
                     connection.Open();
                     cmd.Connection = connection;
 
