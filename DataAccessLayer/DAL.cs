@@ -307,7 +307,7 @@ namespace InleverOpdracht1.DataAccessLayer
                 {
                     connection.Open();
                     cmd.Connection = connection;
-                    cmd.CommandText = "REMOVE FROM Books WHERE id = @id";
+                    cmd.CommandText = "DELETE FROM Books WHERE id = @id";
                     cmd.Parameters.AddWithValue("id", id);
 
                     cmd.ExecuteNonQuery();
