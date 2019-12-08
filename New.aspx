@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Edit.aspx.cs" Inherits="InleverOpdracht1.Edit" %>
+﻿<%@ Page Title="Add book" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="New.aspx.cs" Inherits="InleverOpdracht1.New" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    
     <main id="EditContainer">
 
         <div id="EditFields">
@@ -70,9 +70,6 @@
         </div>
 
         <asp:Button ID="SaveBookBtn" runat="server" Text="Save book" OnClick="SaveBookBtn_Click" />
-        <asp:Button ID="DeleteBookBtn" runat="server" Text="Delete book" OnClick="DeleteBookBtn_Click" />
 
     </main>
-
-
 </asp:Content>
