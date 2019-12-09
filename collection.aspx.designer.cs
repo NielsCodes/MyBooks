@@ -11,34 +11,25 @@ namespace InleverOpdracht1
 {
 
 
-    public partial class SiteMaster
+    public partial class collection
     {
 
         /// <summary>
-        /// MainContent control.
+        /// CollectionTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.Label CollectionTitle;
 
         /// <summary>
-        /// FooterLinkLogout control.
+        /// CollectionTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton FooterLinkLogout;
-
-        /// <summary>
-        /// FooterLinkLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton FooterLinkLogin;
+        protected global::System.Web.UI.WebControls.GridView CollectionTable;
     }
 }
