@@ -22,6 +22,13 @@ namespace InleverOpdracht1
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            // Check if user is logged in
+            if (Request.Cookies["isLoggedIn"] == null)
+            {
+                Response.Redirect("Login?p=new");
+            }
+
             // Get meta data options if first page load
             if (!IsPostBack)
             {

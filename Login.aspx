@@ -9,14 +9,21 @@
 
         <div class="login-input">
             <asp:Label ID="UsernameLabel" runat="server" Text="Username"></asp:Label>
+            <br/>
             <asp:TextBox ID="UsernameInput" runat="server"></asp:TextBox>
+            <br/>
         </div>
+        
+        <br/>
 
         <div class="login-input">
             <asp:Label ID="PasswordLabel" runat="server" Text="Password"></asp:Label>
+            <br/>
             <asp:TextBox ID="PasswordInput" TextMode="Password" runat="server"></asp:TextBox>
+            <br/>
         </div>
         <asp:Label ID="LoginMsg" runat="server" Text=""></asp:Label>
+        <br />
         <asp:Button ID="LoginButton" runat="server" Text="Log in" OnClick="LoginButton_Click" />
 
     </div>
