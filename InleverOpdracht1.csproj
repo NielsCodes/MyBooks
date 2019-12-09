@@ -128,6 +128,8 @@
     </None>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Login.aspx" />
+    <Content Include="Manage.aspx" />
+    <Content Include="ManageType.aspx" />
     <Content Include="New.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -219,6 +221,20 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage.aspx.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage.aspx.designer.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageType.aspx.cs">
+      <DependentUpon>ManageType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageType.aspx.designer.cs">
+      <DependentUpon>ManageType.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\MetaInfo.cs" />
     <Compile Include="Models\SingleBook.cs" />

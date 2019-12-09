@@ -68,11 +68,37 @@ namespace InleverOpdracht1
             if (String.IsNullOrEmpty(page))
             {
                 Response.Redirect("Default");
-            } else if(page == "edit")
+            } else switch (page)
             {
-                // Get book id from URL
-                var bookId = Request.QueryString["id"];
-                Response.Redirect("Edit?id=" + bookId);
+                case "edit":
+                {
+                    // Get book id from URL
+                    var bookId = Request.QueryString["id"];
+                    Response.Redirect("Edit?id=" + bookId);
+                    break;
+                }
+
+                case "new":
+                    Response.Redirect("New");
+                    break;
+
+                case "manage":
+                    Response.Redirect("Manage");
+                    break;
+
+                case "manageType":
+                {
+                    var metaType = Request.QueryString["t"];
+                    if (String.IsNullOrEmpty(metaType))
+                    {
+                        Response.Redirect("manage");
+                    }
+                    else
+                    {
+                        Response.Redirect("ManageType?type=" + metaType);
+                    }
+                    break;
+                }
             }
         }
 

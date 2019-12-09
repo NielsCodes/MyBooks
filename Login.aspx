@@ -17,6 +17,7 @@
             <asp:TextBox ID="PasswordInput" TextMode="Password" runat="server"></asp:TextBox>
         </div>
         <asp:Label ID="LoginMsg" runat="server" Text=""></asp:Label>
+        <br />
         <asp:Button ID="LoginButton" runat="server" Text="Log in" OnClick="LoginButton_Click" />
 
     </div>
