@@ -8,10 +8,6 @@
             <asp:label runat="server" ID="CollectionTitle">MyBooks collection</asp:label>
         </h1>
 
-        <div id="CollectionHeaderSearchControls">
-            <asp:TextBox ID="CollectionSearchInput" runat="server"></asp:TextBox>
-        </div>
-
     </div>
     
 

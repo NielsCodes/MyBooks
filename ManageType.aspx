@@ -4,15 +4,20 @@
 <%@ Import Namespace="InleverOpdracht1.Models" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     
+    <main id="manageContainer">
+        <h1>
+            <asp:Label runat="server" ID="ManageTitle"></asp:Label>
+        </h1>
 
-    <asp:GridView ID="MetaGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="AuthorsDataSource" EmptyDataText="There are no data records to display.">
-        <Columns>
-            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-            <asp:BoundField DataField="id" HeaderText="id" ReadOnly="True" SortExpression="id" />
-            <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
-        </Columns>
-    </asp:GridView>
-    
+        <asp:GridView ID="MetaGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="AuthorsDataSource" EmptyDataText="There are no data records to display.">
+            <Columns>
+                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                <asp:BoundField DataField="id" HeaderText="ID" ReadOnly="True" SortExpression="id" />
+                <asp:BoundField DataField="name" HeaderText="Name" SortExpression="name" />
+            </Columns>
+        </asp:GridView>
+    </main>
+
     
     <%-- DATA SOURCE ASSIGNED FROM URL PARAM--%>
     <asp:SqlDataSource ID="AuthorsDataSource" runat="server" 

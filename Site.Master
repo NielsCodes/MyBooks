@@ -52,10 +52,11 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/collection">Collection</a></li>
+                        <li><a runat="server" href="~/Manage">Manage</a></li>
                     </ul>
                 </div>
+
             </div>
         </div>
         <div class="container body-content">
@@ -64,6 +65,8 @@
             <hr />
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - MyBooks</p>
+                <asp:LinkButton runat="server" ID="FooterLinkLogout" Text="Log out" OnClick="FooterLinkLogout_OnClick"></asp:LinkButton>
+                <asp:LinkButton runat="server" ID="FooterLinkLogin" Text="Log in" OnClick="FooterLinkLogin_OnClick"></asp:LinkButton>
             </footer>
         </div>
 

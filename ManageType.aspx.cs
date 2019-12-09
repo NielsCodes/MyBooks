@@ -32,6 +32,8 @@ namespace InleverOpdracht1
                 Response.Redirect("Login?p=manageType&t=" + metaType);
             }
 
+            ManageTitle.Text = "Manage " + metaType;
+
             switch (metaType)
             {
                 case "Authors":

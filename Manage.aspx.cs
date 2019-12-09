@@ -47,5 +47,10 @@ namespace InleverOpdracht1
         {
             Response.Redirect("ManageType?type=CoverType");
         }
+
+        protected void AddBookLink_OnClick(object sender, EventArgs e)
+        {
+            Response.Redirect("new");
+        }
     }
 }
